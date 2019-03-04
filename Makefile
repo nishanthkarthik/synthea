@@ -1,7 +1,7 @@
 CC = g++
 LIBS = -llua
 
-CFLAGS = -Wall -O -ggdb -std=c++14 $(LIBS)
+CFLAGS = -Wall -g3 -std=c++14 $(LIBS)
 
 SRC = $(wildcard *.cpp) $(wildcard */*.cpp)
 OBJ = $(patsubst %.cpp, %.o, $(SRC))

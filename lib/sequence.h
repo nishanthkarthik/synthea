@@ -31,6 +31,7 @@ public:
 	size_t get_sampling_rate() const;
 	size_t get_start() const;
 	size_t get_end() const;
+	const std::vector<amplitude_t>& get_amplitude() const;
 
 	void resample(size_t sampling_rate);
 

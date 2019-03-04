@@ -18,6 +18,7 @@ public:
 private:
 	size_t max_t_end();
 	std::vector<amplitude_t> mix(Sequence& a, Sequence& b);
+	void overlay(std::vector<amplitude_t>& dest, const Sequence& seq);
 	amplitude_t mix(const amplitude_t a, const amplitude_t b) const;
 
 public:

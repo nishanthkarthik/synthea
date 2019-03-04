@@ -45,6 +45,7 @@ size_t Sequence::get_end() const {
 }
 
 void Sequence::resample(size_t new_rate) {
+	if (new_rate == sampling_rate) { return; }
 	size_t new_length = new_rate * (end - start);
 	std::vector<amplitude_t> result(new_length);
 
@@ -55,6 +56,12 @@ void Sequence::resample(size_t new_rate) {
 		size_t pos_time_new = start + i * SEQUENCE_TS_FACTOR / (double)new_rate;
 		result[i] = linear_interpolate(pos_time_new, amplitude[i], pos_time_start, amplitude[i+1], pos_time_end);
 	}
+
+	amplitude = result;
+}
+
+const std::vector<amplitude_t>& Sequence::get_amplitude() const {
+	return amplitude;
 }
 
 amplitude_t Sequence::linear_interpolate(
